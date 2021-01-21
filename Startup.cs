@@ -9,6 +9,7 @@ using WebApi.Services;
 using Serilog;
 using Serilog.Exceptions;
 using Serilog.Events;
+using WebApi.Extensions;
 
 namespace WebApi
 {
@@ -22,7 +23,7 @@ namespace WebApi
             Log.Logger = new LoggerConfiguration()
                 .Enrich.FromLogContext()
                 .Enrich.WithExceptionDetails()
-                .Enrich.WithCorrelationIdHeader("x-correlation-id")
+                .Enrich.WithCustomCorrelationId("CorrelationId")
                 .ReadFrom.Configuration(Configuration)
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
                 .MinimumLevel.Override("System.Net.Http.HttpClient", LogEventLevel.Warning)

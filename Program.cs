@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using System.Diagnostics;
 
 namespace WebApi
 {
@@ -7,6 +8,7 @@ namespace WebApi
     {
         public static void Main(string[] args)
         {
+            Activity.DefaultIdFormat = ActivityIdFormat.W3C;
             CreateHostBuilder(args).Build().Run();
         }
 
