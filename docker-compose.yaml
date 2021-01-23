@@ -16,4 +16,4 @@ services:
 
 networks:
   main_network:
-    name: elastic_external_network
+    name: swarley_network
